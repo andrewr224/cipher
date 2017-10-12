@@ -1,26 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
   <title>Caesar Cipher</title>
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="stylesheet" type="text/css" href="/main.css">
 </head>
 <body>
-  <h1>Welcome to your personal ciphering machine!</h1>
+  <header class="group">
+    <h1> <span class="first-letter"> W</span>elcome to your personal <span>ciphering</span> machine!</h1>
+  </header>
 
-  <form>
-    Message you want to cipher <br>
-    <textarea rows="4" cols="50" name="message" required></textarea> <br>
+  <section class="group">
 
-    Modifier:
-    <input type="number" name="modifier" value="13" min="1" max="25"> <br>
-    <input type="radio" name="action" value="cipher" checked>Cihper <br>
-    <input type="radio" name="action" value="decipher">Decipher <br>
-    <br>
-    <input type="submit" value="Pvcure!">
-  </form>
 
-  <span>Your message is:</span>
-  <q>
-    <%= encrypted_message %>
-  </q>
+    <form>
+      <legend>Message you want to cipher (or decipher)</legend>
+
+      <textarea rows="3" cols="69" name="message" required></textarea>
+      <label>
+        <input type="number" name="modifier" value="13" min="1" max="25">Modifier
+      </label>
+      <label>
+        <input type="radio" name="action" value="cipher" checked><span>Cihper</span>
+      </label>
+      <label>
+        <input type="radio" name="action" value="decipher"><span>Decihper</span>
+      </label>
+      <input type="submit" value="Pvcure!">
+    </form>
+
+    <div class="encypted-message">
+      <h2>Your message is:</h2>
+      <q>
+        <%= encrypted_message %>
+      </q>
+    </div>
+  </section>
 </body>
 </html>
