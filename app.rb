@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'sinatra/reloader'
 require_relative 'caesar'
 
 get '/' do
