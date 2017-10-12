@@ -1,7 +1,12 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require_relative 'caesar'
 
 get '/' do
+  erb :index, :locals => { :encrypted_message => "" }
+end
+
+post '/' do
   message = params["message"]
   modifier = params["modifier"].to_i
   if params["action"] == "cipher"
