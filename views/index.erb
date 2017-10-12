@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Caesar Cipher</title>
+</head>
+<body>
+  <h1>Welcome to your personal ciphering machine!</h1>
+
+  <form>
+    Message you want to cipher <br>
+    <textarea rows="4" cols="50" name="message" required></textarea> <br>
+
+    Modifier:
+    <input type="number" name="modifier" value="13" min="1" max="25"> <br>
+    <input type="radio" name="action" value="cipher" checked>Cihper <br>
+    <input type="radio" name="action" value="decipher">Decipher <br>
+    <br>
+    <input type="submit" value="Pvcure!">
+  </form>
+
+  <span>Your message is:</span>
+  <q>
+    <%= encrypted_message %>
+  </q>
+</body>
+</html>

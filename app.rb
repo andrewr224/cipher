@@ -1,25 +1,14 @@
-def caesar_cipher(string, mod)
-  # splitting strings into letters...
-  letters = string.split("")
+require 'sinatra'
+require 'sinatra/reloader'
+require_relative 'caesar'
 
-  # ... and change them for a number of times specified by a user
-  mod.times do
-    letters.each do |l|
-      if /[A-Za-z]/.match(l)
-        l.next!
-
-        # 'z'.next! returns 'aa' (ruby v2.3), so we check if the length is more than 1 char...
-        if l.length > 1
-          # ... and trim it
-          l.slice!(1)
-        end
-      end
-    end
+get '/' do
+  message = params["message"]
+  modifier = params["modifier"].to_i
+  if params["action"] == "cipher"
+    encrypted_message = Caesar.new.cipher(message, modifier) if modifier && message
+  else
+    encrypted_message = Caesar.new.decipher(message, modifier) if modifier && message
   end
-
-  letters.join
+  erb :index, :locals => { :encrypted_message => encrypted_message }
 end
-
-# calling cearar_cipher to check how it works
-
-caesar_cipher("What a string!", 5)
